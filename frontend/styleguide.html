@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Styleguide — Vector Gym</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      .swatch { height:72px; border-radius:8px; display:flex; align-items:center; justify-content:center; color:var(--text); font-weight:700; box-shadow: inset 0 -6px 18px rgba(0,0,0,0.12); }
+      .swatch-label{ font-size:.85rem; color:var(--text-muted); margin-top:.5rem; text-align:center; }
+      body.theme-light .swatch { color: var(--text); }
+      .sg-container{ padding:2rem 1rem; max-width:1100px; margin:0 auto; }
+    </style>
+  </head>
+  <body class="">
+    <div class="sg-container">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Styleguide</h2>
+        <div>
+          <a href="index.html" class="btn btn-outline-light btn-sm">Back to site</a>
+        </div>
+      </div>
+
+      <section class="mb-4">
+        <h5>Color tokens</h5>
+        <div class="row g-3 mt-2">
+          <div class="col-sm-6 col-md-3">
+            <div class="swatch" style="background:var(--bg)">Background</div>
+            <div class="swatch-label">--bg</div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="swatch" style="background:var(--surface)">Surface</div>
+            <div class="swatch-label">--surface</div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="swatch" style="background:var(--neon)">Neon</div>
+            <div class="swatch-label">--neon</div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="swatch" style="background:var(--accent)">Accent</div>
+            <div class="swatch-label">--accent</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-4">
+        <h5>Buttons</h5>
+        <div class="d-flex gap-3 flex-wrap mt-2">
+          <button class="btn btn-primary">Primary</button>
+          <button class="btn btn-cta">CTA</button>
+          <button class="btn btn-outline-light">Outline</button>
+          <button class="btn btn-neon">Neon</button>
+        </div>
+      </section>
+
+      <section class="mb-4">
+        <h5>Typography</h5>
+        <p class="lead">This is a lead paragraph demonstrating the font scale and weights.</p>
+        <p><strong>H1 example</strong></p>
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+      </section>
+
+      <section class="mb-4">
+        <h5>Components</h5>
+        <div class="row g-3 mt-2">
+          <div class="col-md-4">
+            <div class="glass p-3">
+              <h6>Glass card</h6>
+              <p class="small text-muted">Cards use the glass variable and readable text color.</p>
+              <button class="btn btn-sm btn-cta">Action</button>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="glass p-3 text-center">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" alt="avatar" class="avatar mb-2" style="width:80px;height:80px;border-radius:999px;object-fit:cover;"/>
+              <h6 class="mb-0">Trainer Name</h6>
+              <small class="text-muted d-block mb-2">Specialty</small>
+              <div><button class="btn btn-sm btn-outline-light">View</button></div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="glass p-3">
+              <h6>Notification</h6>
+              <div style="display:flex;gap:8px;">
+                <div class="badge badge-success" style="background:var(--success);color:#fff;padding:6px 8px;border-radius:6px">Success</div>
+                <div class="badge badge-danger" style="background:var(--danger);color:#fff;padding:6px 8px;border-radius:6px">Danger</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h5>Theme switch</h5>
+        <p class="small text-muted">Use the toggle in the site header (or run <code>localStorage.setItem('theme','light')</code> in console).</p>
+        <div class="mt-2">
+          <button id="previewToggle" class="btn btn-outline-light btn-sm">Toggle theme preview</button>
+        </div>
+      </section>
+
+    </div>
+    <script>
+      document.getElementById('previewToggle').addEventListener('click', ()=>{
+        const current = document.body.classList.contains('theme-light') ? 'light' : 'dark';
+        if(current === 'light'){ document.body.classList.remove('theme-light'); localStorage.setItem('theme','dark'); }
+        else { document.body.classList.add('theme-light'); localStorage.setItem('theme','light'); }
+      });
+    </script>
+  </body>
+</html>
+
+

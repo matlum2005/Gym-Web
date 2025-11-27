@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#071021" />
+    <title>Vector Gym — Elite Fitness</title>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Kanit:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a2d9b6f1b8.js" crossorigin="anonymous"></script>
+    <!-- Tailwind (utilities) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="antialiased">
+    <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark py-3">
+      <div class="container">
+        <!-- Logo Section - Left Aligned -->
+        <div class="navbar-brand-section">
+          <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+            <!-- Unique inline SVG logo (custom monogram) -->
+            <svg class="logo-svg" width="60" height="60" viewBox="0 0 60 60" role="img" aria-label="Vector Gym logo" xmlns="http://www.w3.org/2000/svg" focusable="false">
+              <defs>
+                <linearGradient id="vg-grad" x1="0" x2="1">
+                  <stop offset="0" stop-color="#00b4ff"/>
+                  <stop offset="1" stop-color="#ff6a00"/>
+                </linearGradient>
+              </defs>
+              <rect rx="10" width="60" height="60" fill="url(#vg-grad)"/>
+              <g transform="translate(6,6)" fill="#fff" stroke="none">
+                <!-- stylized V -->
+                <path d="M6 30 L18 6 L22 6 L10 30 Z"/>
+                <!-- stylized G (open stroke) -->
+                <path d="M34 12 C31 8,26 6,20 6 C12 6,6 12,6 20 C6 28,12 34,20 34 C26 34,31 32,34 28" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M30 26 L36 26" stroke="#fff" stroke-width="3" stroke-linecap="round" />
+              </g>
+            </svg>
+            <div>
+              <div class="brand-title">Vector Gym</div>
+              <small class="text-muted d-block brand-sub">Elite Fitness Studio</small>
+            </div>
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Menu -->
+        <button class="navbar-toggler border-0 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#navOffcanvas" aria-controls="navOffcanvas" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Desktop Menu - Center Aligned -->
+        <div class="navbar-menu-section d-none d-lg-flex justify-content-center">
+          <ul class="navbar-nav d-flex flex-row gap-3 align-items-center">
+            <li class="nav-item"><a class="nav-link smooth-hover" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link smooth-hover" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link smooth-hover" href="#services">Programs</a></li>
+            <li class="nav-item"><a class="nav-link smooth-hover" href="#trainers">Trainers</a></li>
+            <li class="nav-item"><a class="nav-link smooth-hover" href="#pricing">Memberships</a></li>
+            <li class="nav-item"><a class="nav-link smooth-hover" href="#testimonials">Testimonials</a></li>
+            <li class="nav-item"><a class="nav-link btn btn-sm btn-outline-light smooth-hover ms-2" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Auth & Theme Section - Right Aligned -->
+        <div class="navbar-auth-section d-none d-lg-flex align-items-center gap-2">
+          <a class="nav-link smooth-hover" href="auth/login.html">Login</a>
+          <a class="nav-link smooth-hover" href="auth/register.html">Register</a>
+          <button id="themeToggleDesktop" class="btn btn-sm btn-outline-light magnetic" aria-label="Toggle theme">
+            <i class="bi bi-moon-fill" id="themeIconDesktop"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Offcanvas Menu -->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="navOffcanvas" aria-labelledby="navOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="navOffcanvasLabel">Menu</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link" href="#home" data-bs-dismiss="offcanvas">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="#about" data-bs-dismiss="offcanvas">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="#services" data-bs-dismiss="offcanvas">Programs</a></li>
+              <li class="nav-item"><a class="nav-link" href="#trainers" data-bs-dismiss="offcanvas">Trainers</a></li>
+              <li class="nav-item"><a class="nav-link" href="#pricing" data-bs-dismiss="offcanvas">Memberships</a></li>
+              <li class="nav-item"><a class="nav-link" href="#testimonials" data-bs-dismiss="offcanvas">Testimonials</a></li>
+              <li class="nav-item"><a class="nav-link btn btn-sm btn-outline-light mt-2" href="#contact" data-bs-dismiss="offcanvas">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="auth/login.html" data-bs-dismiss="offcanvas">Login</a></li>
+              <li class="nav-item"><a class="nav-link" href="auth/register.html" data-bs-dismiss="offcanvas">Register</a></li>
+              <li class="nav-item mt-3">
+                <button id="themeToggle" class="btn btn-sm btn-outline-light magnetic" aria-label="Toggle theme">
+                  <i class="bi bi-moon-fill" id="themeIcon"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <header id="home" class="hero parallax quantum-particles" role="img" aria-label="Gym background" data-parallax="0.5">
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="container hero-content text-center text-white">
+        <div class="eyebrow text-uppercase text-neon fade-up neon-pulse">Elite Performance</div>
+        <h1 class="display-3 fw-extrabold hero-title fade-up delay-1" data-text="Sculpt Power. Build Resilience.">Sculpt Power. Build Resilience.</h1>
+        <p class="lead mt-3 hero-sub fade-up delay-2">Next-level training, science-backed programs, and a community that pushes you forward.</p>
+        <div class="mt-4 fade-up delay-3">
+          <a href="#pricing" class="btn btn-liquid btn-cta btn-lg me-3 magnetic">Join Now</a>
+          <a href="#contact" class="btn btn-outline-cta btn-lg btn-neon magnetic">Book Free Trial</a>
+        </div>
+        <div class="hero-cta-stats d-flex justify-content-center gap-4 mt-5">
+          <div class="stat-card glass holographic fade-up delay-1 elastic-bounce">
+            <div class="stat-num">120+</div>
+            <div class="stat-label">Classes / Week</div>
+          </div>
+          <div class="stat-card glass holographic fade-up delay-2 elastic-bounce">
+            <div class="stat-num">35</div>
+            <div class="stat-label">Expert Trainers</div>
+          </div>
+          <div class="stat-card glass holographic fade-up delay-3 elastic-bounce">
+            <div class="stat-num">5000+</div>
+            <div class="stat-label">Members</div>
+          </div>
+        </div>
+      </div>
+      <a class="scroll-down neon-pulse" href="#about" aria-label="Scroll to About"><i class="bi bi-chevron-down"></i></a>
+    </header>
+
+    <main>
+      <section id="about" class="py-6 section-container">
+        <div class="container">
+          <div class="row align-items-center gx-5">
+            <div class="col-lg-6 order-lg-1">
+              <div class="glass p-4">
+                <h2 class="fw-bold">About Vector Gym</h2>
+                <p class="lead text-body">At Vector Gym we believe training is more than exercise — it’s transformation. Our approach blends sport science, personalized coaching, and technology to craft programs that adapt to your progress. From tailored strength cycles to recovery therapy, we guide every rep and milestone.</p>
+                <ul class="list-unstyled text-muted mt-3">
+                  <li class="mb-2"><i class="bi bi-arrow-right-short text-neon me-2"></i>Performance-first training plans</li>
+                  <li class="mb-2"><i class="bi bi-arrow-right-short text-neon me-2"></i>Evidence-based nutrition & recovery</li>
+                  <li class="mb-2"><i class="bi bi-arrow-right-short text-neon me-2"></i>Community challenges & coaching</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6 order-lg-0">
+              <div class="ratio ratio-16x9 rounded-3 overflow-hidden shadow-lg">
+                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1400&q=80" alt="Gym interior" class="object-cover" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- AI-Powered Smart Features & Media -->
+      <section id="smart" class="feature-section section-container">
+        <div class="container">
+          <h3 class="text-center mb-4">AI-Powered Smart Tools & Media</h3>
+          <div class="row g-4 align-items-start">
+            <div class="col-md-6">
+              <div class="glass small p-3 bmi-modal">
+                <h5>BMI Calculator</h5>
+                <form id="bmiForm" class="row gx-2 gy-2 align-items-end">
+                  <div class="col-6">
+                    <label class="form-label small text-muted" for="bmiWeight">Weight (kg)</label>
+                    <input id="bmiWeight" class="form-control" type="number" min="20" required placeholder="Enter weight in kg" />
+                  </div>
+                  <div class="col-6">
+                    <label class="form-label small text-muted" for="bmiHeight">Height (cm)</label>
+                    <input id="bmiHeight" class="form-control" type="number" min="80" required placeholder="Enter height in cm" />
+                  </div>
+                  <div class="col-12">
+                    <button class="btn btn-cta mt-2 magnetic">Calculate BMI</button>
+                    <div id="bmiResult" class="mt-2"></div>
+                  </div>
+                </form>
+              </div>
+              <div class="glass small p-3 mt-3">
+                <h5>AI Workout Recommendation</h5>
+                <form id="goalForm" class="row gx-2 gy-2">
+                  <div class="col-8">
+                    <label for="goalSelect" class="form-label small text-muted">Select Goal</label>
+                    <select id="goalSelect" class="form-select">
+                      <option value="lose">Lose Fat</option>
+                      <option value="build">Build Muscle</option>
+                      <option value="maintain">Maintain Fitness</option>
+                    </select>
+                  </div>
+                  <div class="col-4 d-grid">
+                    <button class="btn btn-neon magnetic">Suggest</button>
+                  </div>
+                  <div class="col-12 mt-2">
+                    <div id="suggestionOut" class="small text-muted"></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <!-- AI Workout Chatbot -->
+              <div class="glass small p-3 mb-3 ai-chatbot">
+                <h5><i class="bi bi-robot me-2"></i>AI Workout Assistant</h5>
+                <div id="chatMessages" class="chat-messages mb-3" style="height: 200px; overflow-y: auto; background: rgba(0,0,0,0.1); border-radius: 8px; padding: 10px;">
+                  <div class="ai-message mb-2">
+                    <small class="text-neon">🤖 AI Coach:</small>
+                    <p class="small mb-0">Hi! I'm your AI workout assistant. Ask me about exercises, routines, or fitness tips!</p>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <input id="chatInput" type="text" class="form-control" placeholder="Ask me anything about fitness..." />
+                  <button id="sendChat" class="btn btn-neon"><i class="bi bi-send"></i></button>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="daily-quote" id="dailyQuote">Stay tuned for daily motivation</div>
+                <div>
+                  <button class="btn btn-sm btn-outline-light magnetic">Share</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- Professional Image Gallery -->
+      <section id="gallery" class="feature-section section-container">
+        <div class="container">
+          <h3 class="text-center mb-4">Photo Gallery</h3>
+          <div class="gallery-grid">
+            <div class="gallery-item">
+              <img src="assets/3a8b28762dc012e9d393a3b2a7ef2db2.jpg" alt="Gym Equipment" loading="lazy" />
+            </div>
+            <div class="gallery-item">
+              <img src="assets/Bodybuilding-HD-Background.jpg" alt="Bodybuilding Background" loading="lazy" />
+            </div>
+            <div class="gallery-item">
+              <img src="assets/maxresdefault-109.webp" alt="Fitness Training" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Add-on: Upcoming events slider -->
+      <section id="events" class="feature-section section-container bg-darker">
+        <div class="container">
+          <h3 class="text-center text-white mb-4">Upcoming Events & Classes</h3>
+          <div class="events-slider">
+            <div class="event-card glass">
+              <h5>Bootcamp — Sat</h5>
+              <p class="small text-muted">High intensity 45min</p>
+            </div>
+            <div class="event-card glass">
+              <h5>Yoga Flow — Sun</h5>
+              <p class="small text-muted">Mobility & recovery</p>
+            </div>
+            <div class="event-card glass">
+              <h5>Strength Lab — Mon</h5>
+              <p class="small text-muted">Barbell fundamentals</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Floating action buttons -->
+      <div class="fab-group" aria-hidden="false">
+        <button class="fab magnetic" id="fabJoin" aria-label="Join Now" title="Join Now"><i class="bi bi-person-plus-fill"></i></button>
+        <button class="fab secondary magnetic" id="fabContact" aria-label="Contact" title="Contact"><i class="bi bi-chat-dots-fill"></i></button>
+      </div>
+
+
+      <section id="services" class="py-6 section-container bg-darker">
+        <div class="container">
+          <h3 class="text-center text-white mb-4">Services & Training Programs</h3>
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+              <div class="card glass service-card p-4 h-100">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                  <div class="icon-circle text-neon"><i class="fas fa-dumbbell fa-2x"></i></div>
+                  <h5 class="mb-0">Strength & Conditioning</h5>
+                </div>
+                <p class="text-muted">Progressive strength cycles with periodized training to increase power and muscle.</p>
+                <a class="stretched-link text-neon" href="#pricing">See plans</a>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card glass service-card p-4 h-100">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                  <div class="icon-circle text-neon"><i class="fas fa-fire fa-2x"></i></div>
+                  <h5 class="mb-0">High Intensity Training</h5>
+                </div>
+                <p class="text-muted">Short, intense protocols designed for fat loss and metabolic conditioning.</p>
+                <a class="stretched-link text-neon" href="#pricing">Join class</a>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card glass service-card p-4 h-100">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                  <div class="icon-circle text-neon"><i class="fas fa-heartbeat fa-2x"></i></div>
+                  <h5 class="mb-0">Recovery & Mobility</h5>
+                </div>
+                <p class="text-muted">Guided recovery protocols including mobility sessions and cryo/sauna options.</p>
+                <a class="stretched-link text-neon" href="#contact">Book a session</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="trainers" class="py-6 section-container">
+        <div class="container">
+          <h3 class="text-center mb-4">Meet Our Trainers</h3>
+          <div class="row g-4">
+            <div class="col-sm-6 col-lg-3">
+              <div class="card trainer-card h-100 glass p-3 text-center">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" alt="Ava Stone" class="avatar mb-3" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiBmaWxsPSIjZGRkIi8+Cjx0ZXh0IHg9IjYwIiB5PSI2NSIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VXNlciI8L3RleHQ+Cjwvc3ZnPg=='" />
+                <h5 class="mb-0">Ava Stone</h5>
+                <small class="text-muted d-block mb-2">Strength Coach</small>
+                <p class="small text-muted">Olympic lifting, hypertrophy, athlete conditioning.</p>
+                <div class="d-flex justify-content-center gap-2 mt-2">
+                  <button class="btn btn-sm btn-outline-light magnetic">View</button>
+                  <button class="btn btn-sm btn-neon magnetic">Book</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <div class="card trainer-card h-100 glass p-3 text-center">
+                <img src="https://images.unsplash.com/photo-1545996124-1b6ff3b5c3c1?auto=format&fit=crop&w=600&q=80" alt="Liam Fox" class="avatar mb-3" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiBmaWxsPSIjZGRkIi8+Cjx0ZXh0IHg9IjYwIiB5PSI2NSIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VXNlciI8L3RleHQ+Cjwvc3ZnPg=='" />
+                <h5 class="mb-0">Liam Fox</h5>
+                <small class="text-muted d-block mb-2">Cardio Specialist</small>
+                <p class="small text-muted">Endurance, HIIT, marathon prep.</p>
+                <div class="d-flex justify-content-center gap-2 mt-2">
+                  <button class="btn btn-sm btn-outline-light magnetic">View</button>
+                  <button class="btn btn-sm btn-neon magnetic">Book</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <div class="card trainer-card h-100 glass p-3 text-center">
+                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=600&q=80" alt="Maya Reid" class="avatar mb-3" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiBmaWxsPSIjZGRkIi8+Cjx0ZXh0IHg9IjYwIiB5PSI2NSIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VXNlciI8L3RleHQ+Cjwvc3ZnPg=='" />
+                <h5 class="mb-0">Maya Reid</h5>
+                <small class="text-muted d-block mb-2">Nutrition Coach</small>
+                <p class="small text-muted">Macro planning, body recomposition.</p>
+                <div class="d-flex justify-content-center gap-2 mt-2">
+                  <button class="btn btn-sm btn-outline-light magnetic">View</button>
+                  <button class="btn btn-sm btn-neon magnetic">Book</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <div class="card trainer-card h-100 glass p-3 text-center">
+                <img src="https://images.unsplash.com/photo-1541534401786-3f8f52f8a0b8?auto=format&fit=crop&w=600&q=80" alt="Noah King" class="avatar mb-3" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiBmaWxsPSIjZGRkIi8+Cjx0ZXh0IHg9IjYwIiB5PSI2NSIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VXNlciI8L3RleHQ+Cjwvc3ZnPg=='" />
+                <h5 class="mb-0">Noah King</h5>
+                <small class="text-muted d-block mb-2">Mobility Expert</small>
+                <p class="small text-muted">Movement, rehab, corrective exercises.</p>
+                <div class="d-flex justify-content-center gap-2 mt-2">
+                  <button class="btn btn-sm btn-outline-light magnetic">View</button>
+                  <button class="btn btn-sm btn-neon magnetic">Book</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="members" class="py-6 section-container">
+        <div class="container">
+          <h3 class="text-center mb-4">Our Members</h3>
+          <div class="row g-4 justify-content-center">
+            <div class="col-6 col-md-3">
+              <div class="member-card text-center">
+                <img src="assets/member1.png" alt="Member 1" class="member-img rounded-circle shadow transition-transform hover:scale-105" loading="lazy" />
+                <h6 class="mt-3 mb-1">Aftab Khan</h6>
+                <small class="text-muted">Fitness Enthusiast</small>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="member-card text-center">
+                <img src="assets/member2.png" alt="Member 2" class="member-img rounded-circle shadow transition-transform hover:scale-105" loading="lazy" />
+                <h6 class="mt-3 mb-1">Sarah Williams</h6>
+                <small class="text-muted">Powerlifter</small>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="member-card text-center">
+                <img src="assets/member3.jpg" alt="Member 3" class="member-img rounded-circle shadow transition-transform hover:scale-105" loading="lazy" />
+                <h6 class="mt-3 mb-1">Michael Chen</h6>
+                <small class="text-muted">Marathon Runner</small>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="member-card text-center">
+                <img src="assets/member4.jpg" alt="Member 4" class="member-img rounded-circle shadow transition-transform hover:scale-105" loading="lazy" />
+                <h6 class="mt-3 mb-1">Emma Davis</h6>
+                <small class="text-muted">Yoga Practitioner</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="py-6 section-container bg-darker">
+        <div class="container">
+          <h3 class="text-center text-white mb-4">Membership Plans</h3>
+          <div class="row g-4 justify-content-center">
+            <div class="col-md-6 col-lg-4">
+              <div class="card p-4 glass pricing-card">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div>
+                    <h5 class="mb-0">Basic</h5>
+                    <small class="text-muted">Starter</small>
+                  </div>
+                  <div class="price text-neon">₹999<span class="text-muted">/mo</span></div>
+                </div>
+                <ul class="text-muted mb-3">
+                  <li>Gym access</li>
+                  <li>Locker</li>
+                </ul>
+                <button class="btn btn-outline-light w-100 magnetic">Choose Plan</button>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card p-4 glass pricing-card popular shadow-lg">
+                <div class="badge-popular">Most Popular</div>
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div>
+                    <h5 class="mb-0">Standard</h5>
+                    <small class="text-muted">Recommended</small>
+                  </div>
+                  <div class="price text-white">₹1999<span class="text-muted">/mo</span></div>
+                </div>
+                <ul class="text-muted mb-3">
+                  <li>All gym areas</li>
+                  <li>Unlimited classes</li>
+                  <li>Monthly PT session</li>
+                </ul>
+                <button class="btn btn-cta w-100 magnetic">Get Started</button>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card p-4 glass pricing-card">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div>
+                    <h5 class="mb-0">Premium</h5>
+                    <small class="text-muted">All Access</small>
+                  </div>
+                  <div class="price text-neon">₹3999<span class="text-muted">/mo</span></div>
+                </div>
+                <ul class="text-muted mb-3">
+                  <li>1-on-1 coaching</li>
+                  <li>Priority booking</li>
+                  <li>Wellness checks</li>
+                </ul>
+                <button class="btn btn-outline-light w-100 magnetic">Choose Plan</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" class="py-6 section-container">
+        <div class="container">
+          <h3 class="text-center mb-4">What Our Members Say</h3>
+          <div id="testSlider" class="test-slider">
+            <div class="slide active">
+              <blockquote class="blockquote text-center">
+                <p class="mb-2">"Vector Gym transformed my fitness journey — the coaches are world-class."</p>
+                <footer class="blockquote-footer">Aftab Khan</footer>
+              </blockquote>
+            </div>
+            <div class="slide">
+              <blockquote class="blockquote text-center">
+                <p class="mb-2">"I gained strength and confidence in 12 weeks. Facilities are top notch."</p>
+                <footer class="blockquote-footer">Ubead Rana</footer>
+              </blockquote>
+            </div>
+            <div class="slide">
+              <blockquote class="blockquote text-center">
+                <p class="mb-2">"Booking classes is seamless and the community keeps me motivated."</p>
+                <footer class="blockquote-footer">Afzal </footer>
+              </blockquote>
+            </div>
+          </div>
+          <div class="text-center mt-3">
+            <button id="prevTest" class="btn btn-sm btn-outline-light me-2 magnetic" title="Previous testimonial"><i class="bi bi-chevron-left"></i></button>
+            <button id="nextTest" class="btn btn-sm btn-outline-light magnetic" title="Next testimonial"><i class="bi bi-chevron-right"></i></button>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="py-6 section-container bg-darker">
+        <div class="container">
+          <h3 class="text-center text-white mb-4">Contact & Location</h3>
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <form id="contactForm" class="glass p-4">
+                <div class="mb-3">
+                  <label class="form-label text-muted" for="contactName">Name</label>
+                  <input id="contactName" class="form-control" required placeholder="Enter your name" />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label text-muted" for="contactEmail">Email</label>
+                  <input id="contactEmail" type="email" class="form-control" required placeholder="Enter your email" />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label text-muted" for="contactMessage">Message</label>
+                  <textarea id="contactMessage" class="form-control" rows="4" required placeholder="Enter your message"></textarea>
+                </div>
+                <button class="btn btn-cta magnetic">Send Message</button>
+              </form>
+            </div>
+            <div class="col-lg-6">
+              <div class="map rounded-3 overflow-hidden shadow-lg">
+                <iframe class="map-iframe" src="https://www.google.com/maps?q=india&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer py-4">
+      <div class="container text-center">
+        <small>&copy; 2025 Vector Gym.</small>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
+
+

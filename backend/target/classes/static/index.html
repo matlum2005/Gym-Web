@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#071021" />
+    <title>Vector Gym — Elite Fitness</title>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Kanit:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a2d9b6f1b8.js" crossorigin="anonymous"></script>
+    <!-- Tailwind (utilities) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="antialiased text-gray-100 bg-black">
+    <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark sticky-top py-3">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+          <img src="assets/logo-gym.jpg" alt="Vector Gym logo" width="60" height="60" class="logo-img" />
+          <div>
+            <div class="brand-title">Vector Gym</div>
+            <small class="text-muted d-block brand-sub">Elite Fitness Studio</small>
+          </div>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#services">Programs</a></li>
+            <li class="nav-item"><a class="nav-link" href="#trainers">Trainers</a></li>
+            <li class="nav-item"><a class="nav-link" href="#pricing">Memberships</a></li>
+            <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            <li class="nav-item ms-2"><a class="nav-link btn btn-sm btn-outline-light ms-lg-3" href="/auth/login.html">Login</a></li>
+            <li class="nav-item ms-2"><a class="nav-link btn btn-sm btn-cta ms-lg-2" href="/auth/register.html">Register</a></li>
+            <li class="nav-item ms-2">
+              <button id="themeToggle" class="btn btn-sm btn-outline-light" aria-label="Toggle theme">
+                <i class="bi bi-moon-fill" id="themeIcon"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header id="home" class="hero parallax" role="img" aria-label="Gym background" data-parallax="0.5">
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="container hero-content text-center text-white">
+        <div class="eyebrow text-uppercase text-neon">Elite Performance</div>
+        <h1 class="display-3 fw-extrabold hero-title">Sculpt Power. Build Resilience.</h1>
+        <p class="lead mt-3 hero-sub">Next-level training, science-backed programs, and a community that pushes you forward.</p>
+        <div class="mt-4">
+          <a href="#pricing" class="btn btn-cta btn-lg me-3">Join Now</a>
+          <a href="#contact" class="btn btn-outline-cta btn-lg">Book Free Trial</a>
+        </div>
+        <div class="hero-cta-stats d-flex justify-content-center gap-4 mt-5">
+          <div class="stat-card glass">
+            <div class="stat-num">120+</div>
+            <div class="stat-label">Classes / Week</div>
+          </div>
+          <div class="stat-card glass">
+            <div class="stat-num">35</div>
+            <div class="stat-label">Expert Trainers</div>
+          </div>
+          <div class="stat-card glass">
+            <div class="stat-num">5000+</div>
+            <div class="stat-label">Members</div>
+          </div>
+        </div>
+      </div>
+      <a class="scroll-down" href="#about" aria-label="Scroll to About"><i class="bi bi-chevron-down"></i></a>
+    </header>
+
+    <main>
+      <section id="about" class="py-6 section-container">
+        <div class="container">
+          <div class="row align-items-center gx-5">
+            <div class="col-lg-6 order-lg-1">
+              <div class="glass p-4">
+                <h2 class="fw-bold">About Vector Gym</h2>
+                <p class="lead text-muted">At Pro Gym we believe training is more than exercise — it’s transformation. Our approach blends sport science, personalized coaching, and technology to craft programs that adapt to your progress. From tailored strength cycles to recovery therapy, we guide every rep and milestone.</p>
+                <ul class="list-unstyled text-muted mt-3">
+                  <li class="mb-2"><i class="bi bi-arrow-right-short text-neon me-2"></i>Performance-first training plans</li>
+                  <li class="mb-2"><i class="bi bi-arrow-right-short text-neon me-2"></i>Evidence-based nutrition & recovery</li>
+                  <li class="mb-2"><i class="bi bi-arrow-right-short text-neon me-2"></i>Community challenges & coaching</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6 order-lg-0">
+              <div class="ratio ratio-16x9 rounded-3 overflow-hidden shadow-lg">
+                <img src="assets/gym-image.jpg" alt="Gym interior" class="object-cover" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Add-on: Smart features & media -->
+      <section id="smart" class="feature-section section-container">
+        <div class="container">
+          <h3 class="text-center mb-4">Smart Tools & Media</h3>
+          <div class="row g-4 align-items-start">
+            <div class="col-md-6">
+              <div class="glass small p-3 bmi-modal">
+                <h5>BMI Calculator</h5>
+                <form id="bmiForm" class="row gx-2 gy-2 align-items-end">
+                  <div class="col-6">
+                    <label class="form-label small text-muted">Weight (kg)</label>
+                    <input id="bmiWeight" class="form-control" type="number" min="20" required />
+                  </div>
+                  <div class="col-6">
+                    <label class="form-label small text-muted">Height (cm)</label>
+                    <input id="bmiHeight" class="form-control" type="number" min="80" required />
+                  </div>
+                  <div class="col-12">
+                    <button class="btn btn-cta mt-2">Calculate BMI</button>
+                    <div id="bmiResult" class="mt-2"></div>
+                  </div>
+                </form>
+              </div>
+              <div class="glass small p-3 mt-3">
+                <h5>Workout Recommendation</h5>
+                <form id="goalForm" class="row gx-2 gy-2">
+                  <div class="col-8">
+                    <select id="goalSelect" class="form-select">
+                      <option value="lose">Lose Fat</option>
+                      <option value="build">Build Muscle</option>
+                      <option value="maintain">Maintain Fitness</option>
+                    </select>
+                  </div>
+                  <div class="col-4 d-grid">
+                    <button class="btn btn-neon">Suggest</button>
+                  </div>
+                  <div class="col-12 mt-2">
+                    <div id="suggestionOut" class="small text-muted"></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="video-hero glass mb-3">
+                <video autoplay muted loop playsinline>
+                  <source src="assets/promo-loop.mp4" type="video/mp4">
+                </video>
+                <div class="position-absolute top-50 start-50 translate-middle text-center promo-btn">
+                  <button id="promoOpen" class="btn btn-lg btn-outline-light">Watch Promo <i class="bi bi-play-fill ms-2"></i></button>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="daily-quote" id="dailyQuote">Stay tuned for daily motivation</div>
+                <div>
+                  <button class="btn btn-sm btn-outline-light">Share</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Add-on: Progress tracker & achievements -->
+      <section id="progress" class="feature-section section-container bg-darker">
+        <div class="container">
+          <h3 class="text-center text-white mb-4">Progress Tracker & Achievements</h3>
+          <div class="d-flex justify-content-center mb-4">
+            <div class="progress-rings">
+              <div class="ring" data-value="72" title="Weekly goal">
+                <svg width="120" height="120">
+                  <circle cx="60" cy="60" r="52" stroke="rgba(255,255,255,0.06)" stroke-width="12" fill="none"></circle>
+                  <circle class="progress" cx="60" cy="60" r="52" stroke="var(--neon)" stroke-width="12" stroke-linecap="round" fill="none" stroke-dashoffset="0"></circle>
+                </svg>
+                <div class="label">72%</div>
+              </div>
+              <div class="ring" data-value="45" title="Strength goal">
+                <svg width="120" height="120">
+                  <circle cx="60" cy="60" r="52" stroke="rgba(255,255,255,0.06)" stroke-width="12" fill="none"></circle>
+                  <circle class="progress" cx="60" cy="60" r="52" stroke="linear-gradient(90deg,var(--neon), var(--accent))" stroke-width="12" stroke-linecap="round" fill="none"></circle>
+                </svg>
+                <div class="label">45%</div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mb-3">
+            <div class="badges">
+              <div class="badge-ach locked"><div class="icon"><i class="fas fa-dumbbell"></i></div></div>
+              <div class="badge-ach locked"><div class="icon"><i class="fas fa-running"></i></div></div>
+              <div class="badge-ach"><div class="icon"><i class="fas fa-fire"></i></div></div>
+            </div>
+          </div>
+          <div class="text-center"><small class="text-muted">Unlock badges as you complete goals. (Demo)</small></div>
+        </div>
+      </section>
+
+      <!-- Add-on: Gallery & Lightbox -->
+      <section id="gallery" class="feature-section section-container">
+        <div class="container">
+          <h3 class="text-center mb-4">Photo Gallery</h3>
+          <div class="masonry">
+            <img src="assets/gallery1.jpg" alt="gallery" loading="lazy"/>
+            <img src="assets/gallery2.jpg" alt="gallery" loading="lazy"/>
+            <img src="assets/gallery3.jpg" alt="gallery" loading="lazy"/>
+            <img src="assets/gallery4.jpg" alt="gallery" loading="lazy"/>
+            <img src="assets/gallery5.jpg" alt="gallery" loading="lazy"/>
+          </div>
+        </div>
+      </section>
+
+      <!-- Add-on: Upcoming events slider -->
+      <section id="events" class="feature-section section-container bg-darker">
+        <div class="container">
+          <h3 class="text-center text-white mb-4">Upcoming Events & Classes</h3>
+          <div class="events-slider">
+            <div class="event-card glass">
+              <h5>Bootcamp — Sat</h5>
+              <p class="small text-muted">High intensity 45min</p>
+            </div>
+            <div class="event-card glass">
+              <h5>Yoga Flow — Sun</h5>
+              <p class="small text-muted">Mobility & recovery</p>
+            </div>
+            <div class="event-card glass">
+              <h5>Strength Lab — Mon</h5>
+              <p class="small text-muted">Barbell fundamentals</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Floating action buttons -->
+      <div class="fab-group" aria-hidden="false">
+        <button class="fab" id="fabJoin" title="Join Now"><i class="bi bi-person-plus-fill"></i></button>
+        <button class="fab secondary" id="fabContact" title="Contact"><i class="bi bi-chat-dots-fill"></i></button>
+      </div>
+
+      <!-- Payment modal (opened from Join FAB) -->
+      <div class="modal fade" id="paymentModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content glass p-3">
+            <div class="modal-header border-0"><h5 class="modal-title">Checkout (Demo)</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+            <div class="modal-body">
+              <div class="mb-2"><strong id="payPlan">Select a plan</strong></div>
+              <div class="mb-2">
+                <label class="form-label small text-muted">Email (for receipt)</label>
+                <input id="payEmail" class="form-control" type="email" />
+              </div>
+              <div class="mb-2">
+                <label class="form-label small text-muted">Amount</label>
+                <input id="payAmount" class="form-control" readonly />
+              </div>
+              <div class="d-flex gap-2 mt-3">
+                <button id="payStripe" class="btn btn-primary flex-fill">Pay with Stripe (demo)</button>
+                <button id="payRzp" class="btn btn-outline-light flex-fill">Pay with Razorpay (demo)</button>
+              </div>
+              <div class="text-center mt-3"><small class="text-muted">Demo only — gateway integration required for real payments.</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services section continues below... -->
+    </main>
+    <footer class="bg-dark text-white py-4">
+      <div class="container text-center">
+        <small>&copy; 2025 Vector Gym. Built with Bootstrap & Tailwind.</small>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/features.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/payments.js"></script>
+  </body>
+</html>
+
+

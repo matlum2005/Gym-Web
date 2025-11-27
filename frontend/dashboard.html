@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Member Dashboard — Vector Gym</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="bg-black text-white">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark glass mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="#"><i class="bi bi-dumbbell"></i> Vector Gym</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item"><a class="nav-link active" href="#dashboard">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="#workouts">Workouts</a></li>
+            <li class="nav-item"><a class="nav-link" href="#nutrition">Nutrition</a></li>
+            <li class="nav-item"><a class="nav-link" href="#progress">Progress</a></li>
+            <li class="nav-item"><a class="nav-link" href="#bookings">Bookings</a></li>
+          </ul>
+          <button id="logoutBtn" class="btn btn-outline-light btn-sm">Logout</button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <div class="row g-4">
+        <!-- Profile Card -->
+        <div class="col-lg-4 col-md-6">
+          <div class="glass p-4 h-100">
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-person-circle fs-1 me-3"></i>
+              <div>
+                <h5 class="mb-0">Welcome Back!</h5>
+                <small class="text-muted">Member Profile</small>
+              </div>
+            </div>
+            <p id="profileName" class="mb-1 fw-bold">—</p>
+            <p id="profileEmail" class="text-muted mb-3">—</p>
+            <div class="d-flex justify-content-between">
+              <span>Membership: <span id="membershipType">Basic</span></span>
+              <span class="badge bg-success" id="statusBadge">Active</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="col-lg-8 col-md-6">
+          <div class="row g-3">
+            <div class="col-md-3">
+              <div class="glass p-3 text-center">
+                <i class="bi bi-calendar-check fs-2 text-primary mb-2"></i>
+                <h4 id="totalBookings">0</h4>
+                <small>Total Bookings</small>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="glass p-3 text-center">
+                <i class="bi bi-trophy fs-2 text-warning mb-2"></i>
+                <h4 id="workoutsCompleted">0</h4>
+                <small>Workouts Done</small>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="glass p-3 text-center">
+                <i class="bi bi-graph-up fs-2 text-success mb-2"></i>
+                <h4 id="progressScore">85%</h4>
+                <small>Progress</small>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="glass p-3 text-center">
+                <i class="bi bi-star fs-2 text-info mb-2"></i>
+                <h4 id="loyaltyPoints">250</h4>
+                <small>Points</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content Sections -->
+      <div class="row g-4 mt-2">
+        <!-- Upcoming Bookings -->
+        <div class="col-lg-6">
+          <div class="glass p-4">
+            <h5 class="mb-3"><i class="bi bi-calendar-event me-2"></i>Upcoming Bookings</h5>
+            <div id="bookings" class="mb-3">No bookings yet.</div>
+            <button class="btn btn-primary btn-sm" onclick="bookClass()">Book a Class</button>
+          </div>
+        </div>
+
+        <!-- Fitness Goals -->
+        <div class="col-lg-6">
+          <div class="glass p-4">
+            <h5 class="mb-3"><i class="bi bi-bullseye me-2"></i>Fitness Goals</h5>
+            <div class="mb-3">
+              <label class="form-label">Current Goal</label>
+              <select class="form-select form-select-sm" id="goalSelect">
+                <option>Weight Loss</option>
+                <option>Muscle Gain</option>
+                <option>Endurance</option>
+                <option>General Fitness</option>
+              </select>
+            </div>
+            <div class="progress mb-2">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 65%">65%</div>
+            </div>
+            <small class="text-muted">Goal Progress</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Premium Features Section -->
+      <div class="row g-4 mt-2">
+        <div class="col-12">
+          <div class="glass p-4">
+            <h5 class="mb-3"><i class="bi bi-star-fill text-warning me-2"></i>Premium Features</h5>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <div class="card bg-dark text-white border-secondary">
+                  <div class="card-body text-center">
+                    <i class="bi bi-person-lines-fill fs-1 text-primary mb-2"></i>
+                    <h6>Personal Trainer</h6>
+                    <p class="small">Get personalized workout plans</p>
+                    <button class="btn btn-outline-primary btn-sm" onclick="upgradeFeature('trainer')">Upgrade</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card bg-dark text-white border-secondary">
+                  <div class="card-body text-center">
+                    <i class="bi bi-graph-up-arrow fs-1 text-success mb-2"></i>
+                    <h6>Advanced Analytics</h6>
+                    <p class="small">Detailed progress tracking</p>
+                    <button class="btn btn-outline-success btn-sm" onclick="upgradeFeature('analytics')">Upgrade</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card bg-dark text-white border-secondary">
+                  <div class="card-body text-center">
+                    <i class="bi bi-apple fs-1 text-danger mb-2"></i>
+                    <h6>Nutrition Coaching</h6>
+                    <p class="small">Custom meal plans</p>
+                    <button class="btn btn-outline-danger btn-sm" onclick="upgradeFeature('nutrition')">Upgrade</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workout Plans (Premium) -->
+      <div class="row g-4 mt-2">
+        <div class="col-lg-8">
+          <div class="glass p-4">
+            <h5 class="mb-3"><i class="bi bi-activity me-2"></i>Today's Workout Plan <span class="badge bg-warning text-dark">Premium</span></h5>
+            <div class="alert alert-info">
+              <strong>Upgrade to Premium</strong> to access personalized workout plans and track your exercises.
+            </div>
+            <div class="row g-2">
+              <div class="col-md-6">
+                <div class="p-2 border border-secondary rounded">
+                  <strong>Warm-up:</strong> 5 min cardio
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-2 border border-secondary rounded">
+                  <strong>Main Set:</strong> Strength training
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment History -->
+        <div class="col-lg-4">
+          <div class="glass p-4">
+            <h5 class="mb-3"><i class="bi bi-receipt me-2"></i>Payment History</h5>
+            <div id="payments" class="small">
+              <div class="d-flex justify-content-between mb-2">
+                <span>Monthly Fee</span>
+                <span>$50</span>
+              </div>
+              <div class="d-flex justify-content-between mb-2">
+                <span>Personal Training</span>
+                <span>$100</span>
+              </div>
+              <hr>
+              <div class="d-flex justify-content-between fw-bold">
+                <span>Total</span>
+                <span>$150</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>
+
+
